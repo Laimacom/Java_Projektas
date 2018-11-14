@@ -1,9 +1,9 @@
 
 import java.util.Scanner;
 
-public class Trikampis {
+public class Keturkampis {
 	
-	 public static void main(String args[]){   
+	public static void main(String args[]){   
 	       
 	      Scanner reader= new Scanner(System.in);
 	        
@@ -13,11 +13,10 @@ public class Trikampis {
 	         System.out.println("Iveskite antros krastines ilgi: ");
 	         double krastine2= reader.nextDouble();
 	 
-	         double plotas=(krastine1*krastine2)/2;
+	         double plotas=krastine1*krastine2;
 	      
-	         System.out.println("Trikampio plotas: " + plotas);  
+	         System.out.println("Staciakampio plotas: " + plotas);  
 	         
 	      reader.close();
 	   }
-	
 }
