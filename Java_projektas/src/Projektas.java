@@ -1,5 +1,5 @@
 
-public class Projektas {
+public class Projektas {  
  
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
