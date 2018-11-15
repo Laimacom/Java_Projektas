@@ -9,7 +9,7 @@ public class Testas2 {
 		 Scanner reader= new Scanner(System.in);
          System.out.println("Iveskite gimimo metus:");
          double data= reader.nextDouble();
-         double metai=2018 - data ;
+         double metai = 2018 - data ;
          
          System.out.println("Jums yra: " + metai + "metu");  
          if (metai >= 18) {
