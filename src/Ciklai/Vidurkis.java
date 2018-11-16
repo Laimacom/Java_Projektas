@@ -11,19 +11,26 @@ public class Vidurkis {
 	
 	public static void main(String[] args) throws IOException {
 		String filePath = "src\\ciklai\\Nuskaite.txt";
-		File file = new File(filePath);
+		File file = new File(filePath); 
 		BufferedReader br = new BufferedReader(new FileReader(file));
-		String st;
-		while ((st = br.readLine()) != null) {
-			String fileName = "src\\ciklai\\Irase.txt";
-			FileWriter fw = new FileWriter(fileName);
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(st);
-			System.out.println("Done");
-			bw.close();
-			fw.close();
+		String skaiciai = br.readLine();
+		
+		int suma = 0;
+		int i = 0;
+		while (i < skaiciai.length()) {
+			suma += Integer.parseInt(String.valueOf(skaiciai.charAt(i)));
+			i++;
 		}
 		
-	br.close();
+		double vidurkis = suma/skaiciai.length();
+		
+		String fileName = "src\\ciklai\\RezultatasVidurkis.txt";
+		FileWriter fw = new FileWriter(fileName);
+		BufferedWriter bw = new BufferedWriter(fw);
+		bw.write(String.valueOf(vidurkis));
+		bw.close();
+		fw.close();
+		br.close();
 	}
 }
+
