@@ -15,7 +15,7 @@ public class Vidurkis {
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		String skaiciai = br.readLine();
 		
-		int suma = 0;
+		double suma = 0;
 		int i = 0;
 		while (i < skaiciai.length()) {
 			suma += Integer.parseInt(String.valueOf(skaiciai.charAt(i)));
