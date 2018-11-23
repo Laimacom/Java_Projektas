@@ -8,8 +8,8 @@ public class TrecioPenktas {
 		Scanner reader = new Scanner(System.in);
 		System.out.println("Iveskite skaicius ");
 		
-		int[] masyvas = new int [3];
-		for (int i=0; i < 3; i++) {
+		int[] masyvas = new int [10];
+		for (int i=0; i < 10; i++) {
 			masyvas[i] = reader.nextInt();
 		}
 		//Pasitikrinau, ar sudejo i masyva
@@ -20,17 +20,17 @@ public class TrecioPenktas {
 		int kiekis = 0;
 		for (int i=0; i < masyvas.length; i++) {
 			if ( masyvas[i] % 2 == 0) {
-			kiekis = i++;
+			kiekis++;
 			} 
-			reader.close();
+			
+		}
 			
 		if (kiekis != 0) {
-			System.out.println(kiekis);
+			System.out.println("Atsakymas: " + kiekis);
 		} else {
-			System.out.println("Nera");
+			System.out.println("Atsakymas: Nera");
 		}	
 		
-		}
 	}
 }
 	
