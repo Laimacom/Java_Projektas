@@ -11,6 +11,7 @@ public abstract class Figuros {
 	public void setKrastine(){
 		this.krastine = krastine;
 	}
+	
 	//public int getKrastine(){
 		//return krastine;
 	//}

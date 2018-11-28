@@ -10,5 +10,4 @@ public class Apskritimas extends Figuros{
 	public void plotas() {
 		
 	}
-
 }

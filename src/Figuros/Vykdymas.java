@@ -9,7 +9,6 @@ public class Vykdymas {
 		Figuros apskritimas = new Apskritimas();
 		
 		trikampis.setKrastine(10);
-
 	}
 
 }

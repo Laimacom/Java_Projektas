@@ -11,7 +11,6 @@ package Figuros;
 	
 	@Override
 	public void plotas() {
-		
 	}
 
 }
