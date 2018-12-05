@@ -7,65 +7,72 @@ import java.io.IOException;
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-		
-		nuskaitytiPadanga();
-		nuskaitytiSandeli();
-
-	}
-	private static void nuskaitytiPadanga() throws IOException{
-		String kelias = "src\\Padangos\\Duom.txt";
-		File failas = new File(kelias);
-		Scanner skaneris = new Scanner(failas);
-		int plotis = skaneris.nextInt(); //185
-		int aukstis = skaneris.nextInt(); //65
-		String indeksas = skaneris.next(); //HR13
 	
-		Padangos[] padangaZmogaus = new Padangos[1]; 
-		for(int i = 0; i < 1; i++){
-			Padangos padanga = new Padangos();   
-			padanga.setPlotis(plotis); 
-			padanga.setAukstis(aukstis); 
-			padanga.setIndeksas(indeksas); 
-			padangaZmogaus[i] = padanga;
-			System.out.println(padanga); 
-			//return padanga;
-		}
-		skaneris.close();
+		System.out.println("Naudojant tarpine klase:");
+		RatasWrap ratasWrap = readUsingWrap();
+		System.out.println(ratasWrap.getIeskomasRatas());
+		paieska(ratasWrap.getTurimiRatai(), ratasWrap.getIeskomasRatas());
 	}
 	
-	private static void nuskaitytiSandeli() throws IOException{
+	private static String read() throws IOException {
 		String kelias = "src\\Padangos\\Duom.txt";
-		File failas = new File(kelias);
-		Scanner skaneris = new Scanner(failas);
-		int plotis = skaneris.nextInt(); //185
-		int aukstis = skaneris.nextInt(); //65
-		String indeksas = skaneris.next(); //HR13
-		
-		int kiekis = skaneris.nextInt();//5
-		
-		Padangos[] sandelis = new Padangos[kiekis]; 
-		for(int i = 0; i < kiekis; i++){
-			Padangos padangaSandelyje = new Padangos();   
-			plotis = skaneris.nextInt(); //185
-			aukstis = skaneris.nextInt(); //65
-			indeksas = skaneris.next(); //HR13
-			padangaSandelyje.setPlotis(plotis); 
-			padangaSandelyje.setAukstis(aukstis); 
-			padangaSandelyje.setIndeksas(indeksas); 
-			padangaSandelyje.setKaina(skaneris.nextDouble()); 
-			sandelis[i] = padangaSandelyje;
-			System.out.println(padangaSandelyje); 
-		}
-		skaneris.close();
+		return kelias;
 	}
-	//private static int sutampa(int[] array) {
-		//int sutampancios = 0;
-       // for(int i = 0; i < array.length; i++){
-           // if(plotis == padanga.setPlotis(plotis)){
-            //    sutampancios++;
-           // }
-       // }
-		//return sutampancios;
-	//}
 
+	private static RatasWrap readUsingWrap() throws IOException {
+		File file = new File(read());
+		Scanner scanner = new Scanner(file);
+
+		int plotis = scanner.nextInt();
+		int aukstis = scanner.nextInt();
+		String indeksas = scanner.nextLine();
+		Padangos padanga = new Padangos();
+		padanga.setAukstis(aukstis);
+		padanga.setPlotis(plotis);
+		padanga.setIndeksas(indeksas);
+
+		int arrayNum = scanner.nextInt();
+		Padangos[] padang = new Padangos[arrayNum];
+
+		for (int i = 0; i < arrayNum; i++) {
+			Padangos padangaSandeliy = new Padangos();
+			padangaSandeliy.setPlotis(scanner.nextInt());
+			padangaSandeliy.setAukstis(scanner.nextInt());
+			padangaSandeliy.setIndeksas(scanner.next());
+			padangaSandeliy.setKaina(scanner.nextDouble());
+			padang[i] = padangaSandeliy;
+		}
+		scanner.close();
+		
+		RatasWrap ratasWrap = new RatasWrap();
+		ratasWrap.setIeskomasRatas(padanga);
+		ratasWrap.setTurimiRatai(padang);
+
+		return ratasWrap;
+	}
+
+	private static void paieska(Padangos[] padangos, Padangos ieskomaPadanga) {
+		int kiekis = 0;
+		double bendraKaina = 0;
+		for (int i = 0; i < padangos.length; i++) {
+			Padangos sandelioPadanga = padangos[i];
+			if (arAtitinka(ieskomaPadanga, sandelioPadanga)) {
+				bendraKaina = sandelioPadanga.getKaina() + bendraKaina;
+				kiekis++;
+			}
+		}
+		System.out.println("Tinkamu padangu skaicius: "+ kiekis);
+		System.out.println("Jos kainuotu: "+ bendraKaina);
+	}
+
+	private static boolean arAtitinka(Padangos ieskoma, Padangos turima) {
+		boolean atitinka = false;		
+		if (ieskoma.getAukstis() == turima.getAukstis() && 
+				ieskoma.getPlotis() == turima.getPlotis()
+				&& ieskoma.getIndeksas().trim().equals(turima.getIndeksas().trim())) {
+			atitinka = true;
+		}
+
+		return atitinka;
+	}
 }
