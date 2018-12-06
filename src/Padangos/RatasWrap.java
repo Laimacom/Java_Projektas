@@ -1,10 +1,11 @@
 package Padangos;
 
+import java.util.List;
 
 public class RatasWrap {
 	
 		private Padangos ieskomasRatas;
-		private Padangos[] turimiRatai;
+		private List<Padangos> turimiRatai;
 
 		public Padangos getIeskomasRatas() {
 			return ieskomasRatas;
@@ -14,11 +15,11 @@ public class RatasWrap {
 			this.ieskomasRatas = ieskomasRatas;
 		}
 
-		public Padangos[] getTurimiRatai() {
+		public List<Padangos> getTurimiRatai() {
 			return turimiRatai;
 		}
 
-		public void setTurimiRatai(Padangos[] turimiRatai) {
+		public void setTurimiRatai(List<Padangos> turimiRatai) {
 			this.turimiRatai = turimiRatai;
 		}
 }

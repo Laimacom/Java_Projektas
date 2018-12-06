@@ -1,7 +1,11 @@
 package Padangos;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+
 import java.io.IOException;
 
 public class Main {
@@ -32,7 +36,8 @@ public class Main {
 		padanga.setIndeksas(indeksas);
 
 		int arrayNum = scanner.nextInt();
-		Padangos[] padang = new Padangos[arrayNum];
+		//Padangos[] padang = new Padangos[arrayNum];
+		List<Padangos> listPadangos = new ArrayList();
 
 		for (int i = 0; i < arrayNum; i++) {
 			Padangos padangaSandeliy = new Padangos();
@@ -40,30 +45,31 @@ public class Main {
 			padangaSandeliy.setAukstis(scanner.nextInt());
 			padangaSandeliy.setIndeksas(scanner.next());
 			padangaSandeliy.setKaina(scanner.nextDouble());
-			padang[i] = padangaSandeliy;
+			listPadangos.add(padangaSandeliy);
+			//padang[i] = padangaSandeliy;
 		}
 		scanner.close();
 		
 		RatasWrap ratasWrap = new RatasWrap();
 		ratasWrap.setIeskomasRatas(padanga);
-		ratasWrap.setTurimiRatai(padang);
+		ratasWrap.setTurimiRatai(listPadangos);
 
 		return ratasWrap;
 	}
-
-	private static void paieska(Padangos[] padangos, Padangos ieskomaPadanga) {
-		int kiekis = 0;
-		double bendraKaina = 0;
-		for (int i = 0; i < padangos.length; i++) {
-			Padangos sandelioPadanga = padangos[i];
-			if (arAtitinka(ieskomaPadanga, sandelioPadanga)) {
-				bendraKaina = sandelioPadanga.getKaina() + bendraKaina;
-				kiekis++;
-			}
-		}
-		System.out.println("Tinkamu padangu skaicius: "+ kiekis);
-		System.out.println("Jos kainuotu: "+ bendraKaina);
-	}
+// Metodas, naudojamas su masyvu
+//	private static void paieska(Padangos[] padangos, Padangos ieskomaPadanga) {
+//		int kiekis = 0;
+//		double bendraKaina = 0;
+//		for (int i = 0; i < padangos.length; i++) {
+//			Padangos sandelioPadanga = padangos[i];
+//			if (arAtitinka(ieskomaPadanga, sandelioPadanga)) {
+//				bendraKaina = sandelioPadanga.getKaina() + bendraKaina;
+//				kiekis++;
+//			}
+//		}
+//		System.out.println("Tinkamu padangu skaicius: "+ kiekis);
+//		System.out.println("Jos kainuotu: "+ bendraKaina);
+//	}
 
 	private static boolean arAtitinka(Padangos ieskoma, Padangos turima) {
 		boolean atitinka = false;		
@@ -74,5 +80,21 @@ public class Main {
 		}
 
 		return atitinka;
+	}
+	
+	//metodas, naudojamas su listu
+	
+	private static void paieska(List<Padangos> turimiRatai, Padangos ieskomaPadanga) {
+		int kiekis = 0;
+		double bendraKaina = 0;		
+		for (Padangos sandelioPadanga : turimiRatai) {			
+			if (arAtitinka(ieskomaPadanga, sandelioPadanga)) {
+				bendraKaina = sandelioPadanga.getKaina() + bendraKaina;
+				kiekis++;
+			}
+		}
+		System.out.println("Tinkamu padangu skaicius: "+ kiekis);
+		System.out.println("Jos kainuotu: "+ bendraKaina);
+		
 	}
 }
