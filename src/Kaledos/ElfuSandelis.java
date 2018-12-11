@@ -19,7 +19,7 @@ public class ElfuSandelis {
 	}
 	@Override
 	public String toString() {
-	return zaislas + " " + kiekis;
+	return zaislas + "  " + kiekis;
 	}
 }
 

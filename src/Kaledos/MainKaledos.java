@@ -7,9 +7,20 @@ import java.util.List;
 public class MainKaledos {
 
 	public static void main(String[] args) throws FileNotFoundException, ParseException {
-		KaledosSkaiciavimai kaledosSkaiciavimai = new KaledosSkaiciavimai();
-		List<ElfuSandelis> zaislaiSandely = kaledosSkaiciavimai.getElfuSandelis();
-		System.out.println(zaislaiSandely);
+		
+		ElfuSandelisSkaiciavimai elfuSandelisSpausdinimas = new ElfuSandelisSkaiciavimai();
+		List<ElfuSandelis> elfuSandelis = elfuSandelisSpausdinimas.getElfuSandelis();
+		System.out.println(elfuSandelis);
+		
+		VaikuNoraiSkaiciavimai vaikuNoraiSkaiciavimai = new VaikuNoraiSkaiciavimai();
+		List<VaikuNorai> vaikuNorai = vaikuNoraiSkaiciavimai.getVaikuNorai();
+		System.out.println(vaikuNorai);
+		
+		VaikoCharakteristikaSkaiciavimai vaikoCharakteristikaSkaiciavimai = new VaikoCharakteristikaSkaiciavimai();
+		List<VaikoCharakteristika> vaikoCharakteristika = vaikoCharakteristikaSkaiciavimai.getVaikoCharakteristika();
+		System.out.println(vaikoCharakteristika);
+		
+		
 	}
-
+	
 }

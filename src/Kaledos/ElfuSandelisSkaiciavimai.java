@@ -6,7 +6,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class KaledosSkaiciavimai {
+public class ElfuSandelisSkaiciavimai {
+	private static final int TOY_NAME = 0;
+	private static final int TOY_COUNT = 1;
 	
 	public List<ElfuSandelis> getElfuSandelis() throws FileNotFoundException {
 		List<ElfuSandelis> zaislaiSandely = new LinkedList<>();
@@ -16,10 +18,11 @@ public class KaledosSkaiciavimai {
 		
 		while(scanner.hasNext()){
 			ElfuSandelis zaislai = new ElfuSandelis();
-			zaislai.setZaislas(scanner.nextLine());
+			String fileLine = scanner.nextLine();
+			String[] data = fileLine.split(",");
 			
-			//.split(",");
-			//zaislai.setKiekis(scanner.nextInt());
+			zaislai.setZaislas(data[TOY_NAME]);
+			zaislai.setKiekis(Integer.parseInt(data[TOY_COUNT].trim()));			
 
 			zaislaiSandely.add(zaislai);
 		}
