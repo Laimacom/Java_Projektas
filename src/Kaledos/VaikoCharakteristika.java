@@ -4,7 +4,7 @@ public class VaikoCharakteristika {
 
 	private String vardas;
 	private String pavarde;
-	private String charakteristika;
+	private String charakteris;
 	
 	public String getVardas() {
 		return vardas;
@@ -18,16 +18,16 @@ public class VaikoCharakteristika {
 	public void setPavarde(String pavarde) {
 		this.pavarde = pavarde;
 	}
-	public String getCharakteristika() {
-		return charakteristika;
+	public String getCharakteris() {
+		return charakteris;
 	}
-	public void setCharakteristika(String charakteristika) {
-		this.charakteristika = charakteristika;
+	public void setCharakteris(String charakteris) {
+		this.charakteris = charakteris;
 	}
 	
 	@Override
 	public String toString() {
-	return vardas + "  " + pavarde + " " + charakteristika;
+	return vardas + "  " + pavarde + " " + charakteris;
 	}
 	
 }

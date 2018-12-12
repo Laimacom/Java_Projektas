@@ -2,9 +2,12 @@ package Kaledos;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+
+import lt.bt.java.tasks.birthday.Person;
 
 public class VaikoCharakteristikaSkaiciavimai {
 	
@@ -26,7 +29,7 @@ public class VaikoCharakteristikaSkaiciavimai {
 			
 			charakteristika.setVardas(data[CHILD_NAME]);
 			charakteristika.setPavarde(data[CHILD_SURNAME]);
-			charakteristika.setCharakteristika(data[CHARACTER]);	
+			charakteristika.setCharakteris(data[CHARACTER]);	
 			
 			vaikoCharakteristika.add(charakteristika);
 		}
@@ -36,7 +39,16 @@ public class VaikoCharakteristikaSkaiciavimai {
 	}
 	
 	public void gerasBlogas(List<VaikoCharakteristika> vaikoCharakteristika) {
+		
 	
+		for (VaikoCharakteristika geras : vaikoCharakteristika) {
+			
+			
+			if(geras.get(CHARACTER) == Charak){
+
+		
+			}
+		
 		System.out.println(vaikoCharakteristika.get(CHARACTER));
 //		if (vaikoCharakteristika.get(CHARACTER) == "Geras") {
 //			
